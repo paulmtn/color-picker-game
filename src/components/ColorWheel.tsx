@@ -5,7 +5,10 @@
 import { useState } from 'react';
 import { Sketch } from '@uiw/react-color';
 
-function ColorWheel() {
+type Props = {
+  onColorChange?: (hex : string) => void;
+}
+function ColorWheel({onColorChange}: Props) {
   const [hex, setHex] = useState("#fff"); // useState() returns a hex and the setHex function
   return (
     <Sketch
@@ -14,7 +17,9 @@ function ColorWheel() {
 
       // When onChange happens, call this function with the color argument
       onChange={(color) => {
-        setHex(color.hex);
+        if (onColorChange) {
+          onColorChange(color.hex);
+        }
       }}
     />
   );

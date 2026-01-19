@@ -1,9 +1,10 @@
+import { Button } from "@/components/ui/button"
+import React from 'react';
 
-
-function Button() {
-
-
-    return {
-        <Button>
-    }
+function GuessButton() {
+    return (
+        <Button variant="outline">Button</Button>
+    );
 }
+
+export default GuessButton;
